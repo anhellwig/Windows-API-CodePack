@@ -21,7 +21,7 @@ namespace Tests
         // This doesn't affect usability, but makes for some interesting error messages.
 
         [Theory]
-        [PropertyData("FromObjectTestValues")]
+        [MemberData("FromObjectTestValues")]
         public void StaticFromObjectTest(object inputObject, VarEnum expectedVarType)
         {
             using (PropVariant pv = PropVariant.FromObject(inputObject))
@@ -34,7 +34,7 @@ namespace Tests
         }
 
         [Theory]
-        [PropertyData("InputObjectValues")]
+        [MemberData("InputObjectValues")]
         public void SetEmptyValueTest(object inputObject)
         {
             using (PropVariant pv = PropVariant.FromObject(inputObject))
@@ -53,7 +53,7 @@ namespace Tests
         }
 
         [Theory]
-        [PropertyData("InputObjectValues")]
+        [MemberData("InputObjectValues")]
         public void ClearTest(object inputObject)
         {
             using (PropVariant pv = PropVariant.FromObject(inputObject))

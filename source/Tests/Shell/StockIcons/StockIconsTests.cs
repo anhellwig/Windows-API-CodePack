@@ -19,11 +19,12 @@ namespace Tests
             foreach (PropertyInfo info in infos)
             {
                 if (info.PropertyType == typeof(StockIcon))
-                {                    
-                    Assert.DoesNotThrow(new Assert.ThrowsDelegate(() =>
+                {
+                    Exception exception = Record.Exception(() =>
                     {
                         StockIcon test = (StockIcon)info.GetValue(icons, null);
-                    }));
+                    });
+                    Assert.Null(exception);
                 }
             }
         }

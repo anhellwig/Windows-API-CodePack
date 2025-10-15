@@ -65,10 +65,11 @@ namespace Tests
         [Fact]
         public void PowerPersonalityPropertyDoesNotThrow()
         {
-            Assert.DoesNotThrow(() =>
+            Exception exception = Record.Exception(() =>
             {
                 PowerPersonality pp = PowerManager.PowerPersonality;
             });
+            Assert.Null(exception);
         }
 
         [Theory(Skip = "Event dependent property does not return before timeout on some computers.")]
