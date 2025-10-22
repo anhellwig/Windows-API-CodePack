@@ -22,6 +22,13 @@ namespace MS.WindowsAPICodePack.Internal
     [StructLayout(LayoutKind.Explicit)]
     public sealed class PropVariant : IDisposable
     {
+        [StructLayout(LayoutKind.Sequential)]
+        private struct Blob
+        {
+            public int Number;
+            public IntPtr Pointer;
+        }
+
         #region Vector Action Cache
 
         // A static dictionary of delegates to get data from array's contained within PropVariants
@@ -100,7 +107,7 @@ namespace MS.WindowsAPICodePack.Internal
             cache.Add(typeof(Single), (pv, array, i) => // float
             {                
                 float[] val = new float[1];
-                Marshal.Copy(pv._ptr2, val, (int)i, 1);
+                Marshal.Copy(pv._blob.Pointer, val, (int)i, 1);
                 array.SetValue(val[0], (int)i);
             });
 
@@ -109,7 +116,7 @@ namespace MS.WindowsAPICodePack.Internal
                 int[] val = new int[4];
                 for (int a = 0; a < val.Length; a++)
                 {
-                    val[a] = Marshal.ReadInt32(pv._ptr2,
+                    val[a] = Marshal.ReadInt32(pv._blob.Pointer,
                         (int)i * sizeof(decimal) + a * sizeof(int)); //index * size + offset quarter
                 }
                 array.SetValue(new decimal(val), i);
@@ -206,17 +213,8 @@ namespace MS.WindowsAPICodePack.Internal
         //[FieldOffset(6)]
         //ushort _wReserved3;
 
-        // In order to allow x64 compat, we need to allow for
-        // expansion of the IntPtr. However, the BLOB struct
-        // uses a 4-byte int, followed by an IntPtr, so
-        // although the valueData field catches most pointer values,
-        // we need an additional 4-bytes to get the BLOB
-        // pointer. The valueDataExt field provides this, as well as
-        // the last 4-bytes of an 8-byte value on 32-bit
-        // architectures.
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2006:UseSafeHandleToEncapsulateNativeResources")]
-        [FieldOffset(12)]
-        IntPtr _ptr2;
+        [FieldOffset(8)]
+        private readonly Blob _blob;
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2006:UseSafeHandleToEncapsulateNativeResources")]
         [FieldOffset(8)]
         IntPtr _ptr;
@@ -475,11 +473,11 @@ namespace MS.WindowsAPICodePack.Internal
             _int32 = value.Length;
 
             // allocate required memory for array with 128bit elements
-            _ptr2 = Marshal.AllocCoTaskMem(value.Length * sizeof(decimal));            
+            _blob.Pointer = Marshal.AllocCoTaskMem(value.Length * sizeof(decimal));            
             for (int i = 0; i < value.Length; i++)
             {                
                 int[] bits = decimal.GetBits(value[i]);
-                Marshal.Copy(bits, 0, _ptr2, bits.Length);
+                Marshal.Copy(bits, 0, _blob.Pointer, bits.Length);
             }
         }
 
@@ -502,10 +500,10 @@ namespace MS.WindowsAPICodePack.Internal
 
             _valueType = (ushort)(VarEnum.VT_R4 | VarEnum.VT_VECTOR);
             _int32 = value.Length;
-                        
-            _ptr2 = Marshal.AllocCoTaskMem(value.Length * sizeof(float));
 
-            Marshal.Copy(value, 0, _ptr2, value.Length);
+            _blob.Pointer = Marshal.AllocCoTaskMem(value.Length * sizeof(float));
+
+            Marshal.Copy(value, 0, _blob.Pointer, value.Length);
         }
 
         /// <summary>
@@ -715,7 +713,7 @@ namespace MS.WindowsAPICodePack.Internal
         {
             byte[] blobData = new byte[_int32];
 
-            IntPtr pBlobData = _ptr2;
+            IntPtr pBlobData = _blob.Pointer;
             Marshal.Copy(pBlobData, blobData, 0, _int32);
 
             return blobData;
