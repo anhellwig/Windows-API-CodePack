@@ -523,14 +523,15 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
 
         private static IntPtr AllocateAndMarshalButtons(TaskDialogNativeMethods.TaskDialogButton[] structs)
         {
-            IntPtr initialPtr = Marshal.AllocHGlobal(
-                Marshal.SizeOf(typeof(TaskDialogNativeMethods.TaskDialogButton)) * structs.Length);
+            int sizeOfButton = Marshal.SizeOf(typeof(TaskDialogNativeMethods.TaskDialogButton));
+            IntPtr initialPtr = Marshal.AllocHGlobal(sizeOfButton * structs.Length);
 
             IntPtr currentPtr = initialPtr;
+            bool is64Bit = Marshal.SizeOf(typeof(IntPtr)) == 8;
             foreach (TaskDialogNativeMethods.TaskDialogButton button in structs)
             {
                 Marshal.StructureToPtr(button, currentPtr, false);
-                currentPtr = (IntPtr)((int)currentPtr + Marshal.SizeOf(button));
+                currentPtr = new IntPtr((is64Bit ? currentPtr.ToInt64() : currentPtr.ToInt32()) + sizeOfButton);
             }
 
             return initialPtr;
@@ -588,13 +589,27 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                 }
 
                 // Clean up the button and radio button arrays, if any.
+                int sizeOfButton = Marshal.SizeOf(typeof(TaskDialogNativeMethods.TaskDialogButton));
+                bool is64Bit = Marshal.SizeOf(typeof(IntPtr)) == 8;
                 if (buttonArray != IntPtr.Zero)
                 {
+                    for (int i = 0; i < settings.Buttons.Length; ++i)
+                    {
+                        IntPtr curItem = new IntPtr(is64Bit ? buttonArray.ToInt64() + i * sizeOfButton : buttonArray.ToInt32() + i * sizeOfButton);
+                        Marshal.DestroyStructure(curItem, typeof(TaskDialogNativeMethods.TaskDialogButton));
+                    }
+
                     Marshal.FreeHGlobal(buttonArray);
                     buttonArray = IntPtr.Zero;
                 }
                 if (radioButtonArray != IntPtr.Zero)
                 {
+                    for (int i = 0; i < settings.RadioButtons.Length; ++i)
+                    {
+                        IntPtr curItem = new IntPtr(is64Bit ? radioButtonArray.ToInt64() + i * sizeOfButton : radioButtonArray.ToInt32() + i * sizeOfButton);
+                        Marshal.DestroyStructure(curItem, typeof(TaskDialogNativeMethods.TaskDialogButton));
+                    }
+
                     Marshal.FreeHGlobal(radioButtonArray);
                     radioButtonArray = IntPtr.Zero;
                 }
