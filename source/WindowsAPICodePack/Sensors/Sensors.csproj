@@ -2,22 +2,27 @@
 
   <PropertyGroup>
     <TargetFrameworks>net9.0-windows;net8.0-windows;net48</TargetFrameworks>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <LangVersion>latest</LangVersion>
-    <AssemblyName>Microsoft.WindowsAPICodePack.Sensors</AssemblyName>
     <RootNamespace>Microsoft.WindowsAPICodePack.Sensors</RootNamespace>
-    <Title>Microsoft.WindowsAPICodePack.Sensors</Title>
-    <Description>WindowsAPICodePack for Sensors</Description>
-    <Company>Microsoft</Company>
-    <Product>Microsoft Windows API Code Pack for .NET Framework</Product>
-    <Copyright>Copyright © Microsoft 2009</Copyright>
+    <AssemblyName>AHe.WindowsAPICodePack.Sensors</AssemblyName>
+    <Title>AHe.WindowsAPICodePack.Sensors</Title>
+    <Description>Windows API Code Pack for Sensors</Description>
     <Version>1.1.0</Version>
     <NeutralLanguage>en</NeutralLanguage>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>AHe.WindowsAPICodePack.Sensors</PackageId>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

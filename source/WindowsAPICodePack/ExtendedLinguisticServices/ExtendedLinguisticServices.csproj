@@ -2,22 +2,27 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net9.0;net8.0;net48</TargetFrameworks>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-    <Version>1.1.0</Version>
-    <Title>Microsoft.WindowsAPICodePack.ExtendedLinguisticServices</Title>
-    <Description>WindowsAPICodePack for Extended Linguistic Services</Description>
-    <Company>Microsoft</Company>
-    <Copyright>Copyright © Microsoft 2010</Copyright>
-    <Product>Microsoft Windows API Code Pack for .NET Framework</Product>
     <RootNamespace>Microsoft.WindowsAPICodePack.ExtendedLinguisticServices</RootNamespace>
-    <AssemblyName>Microsoft.WindowsAPICodePack.ExtendedLinguisticServices</AssemblyName>
+    <AssemblyName>AHe.WindowsAPICodePack.ExtendedLinguisticServices</AssemblyName>
+    <Title>AHe.WindowsAPICodePack.ExtendedLinguisticServices</Title>
+    <Description>Windows API Code Pack for Extended Linguistic Services</Description>
+    <Version>1.1.0</Version>
     <NeutralLanguage>en</NeutralLanguage>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>AHe.WindowsAPICodePack.ExtendedLinguisticServices</PackageId>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

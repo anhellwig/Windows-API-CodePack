@@ -4,22 +4,27 @@
     <TargetFrameworks>net9.0-windows;net8.0-windows;net48</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <LangVersion>latest</LangVersion>
     <RootNamespace>Microsoft.WindowsAPICodePack.Shell</RootNamespace>
-    <AssemblyName>Microsoft.WindowsAPICodePack.Shell</AssemblyName>
-    <Title>Microsoft.WindowsAPICodePack.Shell</Title>
-    <Description>WindowsAPICodePack for Shell</Description>
-    <Company>Microsoft</Company>
-    <Product>Microsoft Windows API Code Pack for .NET Framework</Product>
-    <Copyright>Copyright © Microsoft 2010</Copyright>
+    <AssemblyName>AHe.WindowsAPICodePack.Shell</AssemblyName>
+    <Title>AHe.WindowsAPICodePack.Shell</Title>
+    <Description>Windows API Code Pack for Shell</Description>
     <Version>1.1.0</Version>
     <NeutralLanguage>en</NeutralLanguage>
+    <PackageId>AHe.WindowsAPICodePack.Shell</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

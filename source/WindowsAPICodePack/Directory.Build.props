@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <Product>Microsoft Windows API Code Pack for .NET</Product>
+    <Authors>Microsoft and contributors</Authors>
+    <Copyright>Copyright © Microsoft and contributors 2025</Copyright>
+    <PackageProjectUrl>https://github.com/anhellwig/Windows-API-CodePack</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/anhellwig/Windows-API-CodePack.git</RepositoryUrl>
+  </PropertyGroup>
+</Project>

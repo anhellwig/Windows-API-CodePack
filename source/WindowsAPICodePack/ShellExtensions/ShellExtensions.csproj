@@ -4,23 +4,29 @@
     <TargetFrameworks>net9.0-windows;net8.0-windows;net48</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
     <RootNamespace>Microsoft.WindowsAPICodePack.ShellExtensions</RootNamespace>
-    <AssemblyName>Microsoft.WindowsAPICodePack.ShellExtensions</AssemblyName>
-    <Title>ShellExtensions</Title>
-    <Company>Microsoft</Company>
-    <Product>ShellExtensions</Product>
-    <Copyright>Copyright © Microsoft 2010</Copyright>
+    <AssemblyName>AHe.WindowsAPICodePack.ShellExtensions</AssemblyName>
+    <Title>AHe.WindowsAPICodePack.ShellExtensions</Title>
+    <Description>Windows API Code Pack for Shell Extensions</Description>
     <Version>1.1.0</Version>
     <NeutralLanguage>en</NeutralLanguage>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>AHe.WindowsAPICodePack.ShellExtensions</PackageId>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
     <CodeAnalysisDictionary Include="CustomDictionary.xml">
       <SubType>Designer</SubType>
     </CodeAnalysisDictionary>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
