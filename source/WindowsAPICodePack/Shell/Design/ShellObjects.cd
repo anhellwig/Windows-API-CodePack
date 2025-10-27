@@ -63,13 +63,6 @@
       <NewMemberFileName>ShellFolder.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Microsoft.WindowsAPICodePack.Shell.ShellObjectNode" Collapsed="true">
-    <Position X="7" Y="1.5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Common\ShellObjectNode.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Microsoft.WindowsAPICodePack.Shell.ShellNonFileSystemItem" Collapsed="true">
     <Position X="6.25" Y="2.75" Width="1.75" />
     <TypeIdentifier>

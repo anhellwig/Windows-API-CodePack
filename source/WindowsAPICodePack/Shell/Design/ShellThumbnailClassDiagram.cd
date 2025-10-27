@@ -21,14 +21,14 @@
       <FileName>Common\DefaultShellImageSizes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="Microsoft.WindowsAPICodePack.Shell.ShellThumbnailRetrievalOptions">
+  <Enum Name="Microsoft.WindowsAPICodePack.Shell.ShellThumbnailRetrievalOption">
     <Position X="5.25" Y="2.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>Common\ShellThumbnailEnums.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Microsoft.WindowsAPICodePack.Shell.ShellThumbnailFormatOptions">
+  <Enum Name="Microsoft.WindowsAPICodePack.Shell.ShellThumbnailFormatOption">
     <Position X="8.25" Y="2.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAACAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
