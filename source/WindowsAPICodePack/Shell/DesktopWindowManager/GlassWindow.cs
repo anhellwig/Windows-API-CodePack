@@ -4,6 +4,8 @@ using System.Windows.Media;
 using MS.WindowsAPICodePack.Internal;
 using Microsoft.WindowsAPICodePack.Shell.Interop;
 using System.Windows;
+using Size = System.Windows.Size;
+using Point = System.Windows.Point;
 
 namespace Microsoft.WindowsAPICodePack.Shell
 {
@@ -54,7 +56,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
             HwndSource.FromHwnd(windowHandle).CompositionTarget.BackgroundColor = System.Windows.Media.Colors.Transparent;
 
             // Set the Background to transparent from WPF perpective 
-            this.Background = Brushes.Transparent;
+            this.Background = System.Windows.Media.Brushes.Transparent;
         }
 
         /// <summary>

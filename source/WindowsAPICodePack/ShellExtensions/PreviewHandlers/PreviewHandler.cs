@@ -5,10 +5,10 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Shell;
-using Microsoft.WindowsAPICodePack.Shell.Interop;
 using Microsoft.WindowsAPICodePack.ShellExtensions.Interop;
 using Microsoft.WindowsAPICodePack.ShellExtensions.Resources;
 using MS.WindowsAPICodePack.Internal;
+
 
 namespace Microsoft.WindowsAPICodePack.ShellExtensions
 {
@@ -132,7 +132,7 @@ namespace Microsoft.WindowsAPICodePack.ShellExtensions
             phwnd = HandlerNativeMethods.GetFocus();
         }
 
-        HResult IPreviewHandler.TranslateAccelerator(ref Message pmsg)
+        HResult IPreviewHandler.TranslateAccelerator(ref Shell.Interop.Message pmsg)
         {
             return _frame != null ? _frame.TranslateAccelerator(ref pmsg) : HResult.False;
         }

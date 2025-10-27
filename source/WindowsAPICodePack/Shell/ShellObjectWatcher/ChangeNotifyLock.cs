@@ -13,7 +13,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
     {
         private uint _event = 0;
 
-        internal ChangeNotifyLock(Message message)
+        internal ChangeNotifyLock(Interop.Message message)
         {
             IntPtr pidl;
             IntPtr lockId = ShellNativeMethods.SHChangeNotification_Lock(

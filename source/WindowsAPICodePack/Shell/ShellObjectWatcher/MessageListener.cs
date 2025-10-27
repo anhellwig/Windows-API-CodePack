@@ -5,6 +5,7 @@ using System.Threading;
 using MS.WindowsAPICodePack.Internal;
 using Microsoft.WindowsAPICodePack.Shell.Interop;
 using Microsoft.WindowsAPICodePack.Shell.Resources;
+using Message = Microsoft.WindowsAPICodePack.Shell.Interop.Message;
 
 namespace Microsoft.WindowsAPICodePack.Shell
 {

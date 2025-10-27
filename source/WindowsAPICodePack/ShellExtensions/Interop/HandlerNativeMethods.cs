@@ -4,6 +4,7 @@ using System.Runtime.InteropServices.ComTypes;
 using Microsoft.WindowsAPICodePack.Shell;
 using MS.WindowsAPICodePack.Internal;
 using Microsoft.WindowsAPICodePack.Shell.Interop;
+using Message = Microsoft.WindowsAPICodePack.Shell.Interop.Message;
 
 namespace Microsoft.WindowsAPICodePack.ShellExtensions.Interop
 {

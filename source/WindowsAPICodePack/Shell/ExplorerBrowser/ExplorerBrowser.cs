@@ -1,6 +1,7 @@
 ﻿//Copyright (c) Microsoft Corporation.  All rights reserved.
 
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
@@ -99,6 +100,7 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsForms
         /// <summary>
         /// The name of the property bag used to persist changes to the ExplorerBrowser's view state.
         /// </summary>
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string PropertyBagName
         {
             get { return propertyBagName; }

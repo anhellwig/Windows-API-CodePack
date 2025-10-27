@@ -14,7 +14,7 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsPresentationFoundation
     /// <summary>
     /// Interaction logic for ExplorerBrowser.xaml
     /// </summary>
-    public partial class ExplorerBrowser : UserControl, IDisposable
+    public partial class ExplorerBrowser : System.Windows.Controls.UserControl, IDisposable
     {
         /// <summary>
         /// The underlying WinForms control

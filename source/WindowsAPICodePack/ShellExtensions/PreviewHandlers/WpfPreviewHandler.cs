@@ -5,6 +5,11 @@ using System.Windows.Media;
 using Microsoft.WindowsAPICodePack.ShellExtensions.Interop;
 using Microsoft.WindowsAPICodePack.ShellExtensions.Resources;
 using Microsoft.WindowsAPICodePack.Shell;
+using Brushes = System.Windows.Media.Brushes;
+using TextBox = System.Windows.Controls.TextBox;
+using UserControl = System.Windows.Controls.UserControl;
+using Color = System.Windows.Media.Color;
+using FontFamily = System.Windows.Media.FontFamily;
 
 namespace Microsoft.WindowsAPICodePack.ShellExtensions
 {
@@ -26,7 +31,7 @@ namespace Microsoft.WindowsAPICodePack.ShellExtensions
         /// <summary>
         /// This control must be populated by the deriving class before the preview is shown.
         /// </summary>
-        public UserControl Control { get; protected set; }
+        public System.Windows.Controls.UserControl Control { get; protected set; }
 
         /// <summary>
         /// Throws an exception if the Control property has not been populated.

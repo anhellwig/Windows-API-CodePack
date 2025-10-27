@@ -12,7 +12,7 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsPresentationFoundation
     /// <summary>
     /// Implements a CommandLink button that can be used in WPF user interfaces.
     /// </summary>
-    public partial class CommandLink : UserControl, INotifyPropertyChanged
+    public partial class CommandLink : System.Windows.Controls.UserControl, INotifyPropertyChanged
     {
         /// <summary>
         /// Creates a new instance of this class.
